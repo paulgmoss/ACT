@@ -671,6 +671,96 @@
             font-style: italic;
         }
 
+        /* --- Research cards --- */
+        .research-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+        .research-card {
+            background: var(--clr-bg-card);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius);
+            padding: var(--space-md);
+            position: relative;
+            overflow: hidden;
+        }
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+        .research-card--usability::before { background: var(--clr-highlight); }
+        .research-card--empirical::before { background: var(--clr-accent-b); }
+        .research-card-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 5px;
+            margin-bottom: 0.75rem;
+        }
+        .research-card--usability .research-card-tag {
+            background: var(--clr-highlight); color: #fff;
+        }
+        .research-card--empirical .research-card-tag {
+            background: var(--clr-accent-b-light); color: var(--clr-accent-b);
+        }
+        .research-card h3 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .research-card p {
+            font-size: 0.93rem;
+            color: var(--clr-ink-light);
+            line-height: 1.7;
+        }
+        .research-card p + p { margin-top: 0.5rem; }
+        .research-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.85rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .research-card--usability .research-card-link {
+            color: #8b6914;
+            background: #fef3e0;
+        }
+        .research-card--usability .research-card-link:hover {
+            background: var(--clr-highlight);
+            color: #fff;
+        }
+        .research-card--empirical .research-card-link {
+            color: var(--clr-accent-b);
+            background: var(--clr-accent-b-light);
+        }
+        .research-card--empirical .research-card-link:hover {
+            background: var(--clr-accent-b);
+            color: #fff;
+        }
+        .research-card-time {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--clr-ink-muted);
+            margin-top: 0.4rem;
+            font-style: italic;
+        }
+        @media (max-width: 640px) {
+            .research-cards { grid-template-columns: 1fr; }
+        }
+
         /* --- Footer --- */
         footer {
             border-top: 1px solid var(--clr-border);
@@ -926,33 +1016,40 @@
                     <summary>
                         <span class="accordion-icon" aria-hidden="true">🔬</span>
                         <span class="accordion-title-text">
-                            Help Us with Our Research
-                            <span class="accordion-subtitle">Contribute to understanding how educators engage with constructive alignment</span>
+                            Help Us Improve and Research the Tool
+                            <span class="accordion-subtitle">Share usability feedback or participate in our research on constructive alignment</span>
                         </span>
                         <svg class="accordion-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg>
                     </summary>
                     <div class="accordion-body">
-                        <p style="color: var(--clr-ink-light); max-width: 680px;">We're conducting research to better understand how educators engage with the alignment process. We're particularly interested&nbsp;in:</p>
+                        <p style="color: var(--clr-ink-light); max-width: 680px; margin-bottom: 0.5rem;">There are two ways you can contribute, and you are welcome to do either or&nbsp;both.</p>
 
-                        <ul class="research-interests" role="list">
-                            <li>How educators decide where to begin when designing or revising courses</li>
-                            <li>What difference it makes (practically and affectively) where you begin</li>
-                            <li>How it feels to assign numerical values to CLO weightings or assignment criteria</li>
-                            <li>How it feels when the tool generates numerical estimates based on your inputs</li>
-                            <li>What you notice when adjusting one input changes outputs elsewhere</li>
-                            <li>Whether iterating with the tool influences your thinking about course design</li>
-                            <li>What challenges or insights emerge through the process</li>
-                        </ul>
+                        <div class="research-cards">
+                            <!-- Card 1: Usability -->
+                            <div class="research-card research-card--usability">
+                                <span class="research-card-tag">Usability Feedback</span>
+                                <h3>Help Us Improve the Tool</h3>
+                                <p>After using the tool, we would value your feedback on the experience: clarity of instructions, visual design, quality of explanations, and overall ease of use. This helps us improve the tool for future&nbsp;users.</p>
+                                <p>Your responses are anonymous and are used solely to improve the tool's&nbsp;usability.</p>
+                                <a href="[your-usability-survey-url]" class="research-card-link" target="_blank" rel="noopener">
+                                    Complete the usability survey →
+                                </a>
+                                <span class="research-card-time">Approximately 5 minutes</span>
+                            </div>
 
-                        <div class="research-participate">
-                            <p>If you'd like to contribute, after using the tool you can choose&nbsp;to:</p>
-                            <ul role="list">
-                                <li>Complete a brief survey about your experience</li>
-                                <li>Participate in a follow-up interview to discuss how the tool influenced your thinking</li>
-                            </ul>
-                            <a href="[your-consent-form-url]" class="consent-link">Learn more and provide consent for research participation →</a>
-                            <p class="voluntary-note">Your participation is entirely voluntary. You can use the tool without participating in the research. We value honest feedback (whether the tool was helpful, confusing, confirmatory, or surprising). All research data will be kept&nbsp;confidential.</p>
+                            <!-- Card 2: Empirical Research -->
+                            <div class="research-card research-card--empirical">
+                                <span class="research-card-tag">Research Participation</span>
+                                <h3>Participate in Our Research</h3>
+                                <p>We are conducting research to better understand how educators engage with the alignment process. We are particularly interested in how it feels to work with the tool, what you notice when inputs affect outputs, and whether the process influences your thinking about course&nbsp;design.</p>
+                                <p>Participation involves a follow-up survey and potentially an interview. All data is kept confidential and participation is entirely&nbsp;voluntary.</p>
+                                <a href="[your-consent-form-url]" class="research-card-link" target="_blank" rel="noopener">
+                                    Register your interest →
+                                </a>
+                            </div>
                         </div>
+
+                        <p class="voluntary-note" style="margin-top: var(--space-md);">Both forms of participation are entirely voluntary. You can use the tool without contributing to either. We value honest feedback, whether the tool was helpful, confusing, confirmatory, or&nbsp;surprising.</p>
                     </div>
                 </details>
 
