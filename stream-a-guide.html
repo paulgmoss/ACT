@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stream A Walkthrough: Alignment Construction Tool</title>
+<title>Stream A Walkthrough: Constructive Alignment Tool</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --ink:#1a2a3a;--ink-light:#3d5269;--ink-muted:#6b7f94;
-  --bg:#f8f7f4;--bg-warm:#f1efe9;--bg-card:#fff;
-  --accent:#1b6b5a;--accent-light:#e6f2ef;--accent-hover:#155a4b;
-  --blue:#2a5a8f;--blue-light:#e4edf7;
-  --gold:#d4a853;--gold-light:#fef8eb;
-  --border:#ddd8ce;
-  --tool-navy:#1e1e3f;--tool-pink:#c0392b;--tool-green:#27ae60;--tool-purple:#6c5ce7;--tool-bg:#f5f3ff;
+  --ink:#140F50;--ink-light:#3d3770;--ink-muted:#6b6890;
+  --bg:#F8EFE0;--bg-warm:#f0e6d4;--bg-card:#fff;
+  --accent:#140F50;--accent-light:#e8e7f0;--accent-hover:#0d0b40;
+  --blue:#836BFF;--blue-light:#eee8ff;
+  --gold:#140F50;--gold-light:#e8e7f0;
+  --border:#d8d0c4;
+  --tool-navy:#140F50;--tool-pink:#c0392b;--tool-green:#27ae60;--tool-purple:#836BFF;--tool-bg:#f0edff;
   --font-display:'Fraunces',Georgia,serif;
   --font-body:'Source Sans 3','Segoe UI',sans-serif;
   --font-mono:'JetBrains Mono',monospace;
@@ -156,7 +156,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 <body>
 
 <header class="hd"><div class="pw">
-  <div class="hd-logo">Alignment <span>Construction</span> Tool</div>
+  <div class="hd-logo">Constructive <span>Alignment</span> Tool</div>
   <a href="https://paulgmoss.github.io/ACT/" class="hd-back">← Back to landing page</a>
 </div></header>
 
@@ -212,7 +212,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
   <div class="g g-blue">
     <div class="g-lbl">Input mode</div>
     <p>The tool offers two input modes, toggled at the top right of the page. <strong>Numbers mode</strong> lets you type values directly. <strong>Visual mode</strong> adds sliders alongside the numbers. In Visual mode, each CLO has a slider: the filled portion shows its current weighting, and a coloured line shows the space available for it to increase. As you reduce one CLO's weighting, you free up space for the others. Drag the sliders until the total reaches 100% and the distribution reflects your intended emphasis.</p>
-    <p>Visual mode is particularly useful for a sense check: once you have entered your numbers, look at the relative lengths of the sliders and ask yourself whether they match your intuition about the course.</p>
+    <p>Visual mode is particularly useful for a sense check: once you have entered your numbers, look at the relative lengths of the sliders and ask yourself whether they match your intuition about the course. Once the sliders are in place, you may wish to adjust the numbers in the boxes directly to round off or even out the figures.</p>
   </div>
 
   <div class="tm">
@@ -225,10 +225,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
       <table class="st" aria-label="CLO weightings example">
         <thead><tr><th style="width:70px">CLO</th><th>Name</th><th style="min-width:220px">Course Weighting (%)</th><th style="width:80px;text-align:center">Actions</th></tr></thead>
         <tbody>
-          <tr><td style="font-weight:600">CLO 1</td><td><span class="si si-w">CLO 1</span></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-blue" style="width:40%"></div><div class="slider-dot slider-dot-blue" style="left:40%"></div></div><span class="si" style="width:50px;text-align:center">40</span></div></td><td style="text-align:center"><span class="btn-rm">Remove</span></td></tr>
-          <tr><td style="font-weight:600">CLO 2</td><td><span class="si si-w">CLO 2</span></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-blue" style="width:15%"></div><div class="slider-dot slider-dot-blue" style="left:15%"></div></div><span class="si" style="width:50px;text-align:center">15</span></div></td><td style="text-align:center"><span class="btn-rm">Remove</span></td></tr>
-          <tr><td style="font-weight:600">CLO 3</td><td><span class="si si-w">CLO 3</span></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-blue" style="width:30%"></div><div class="slider-dot slider-dot-blue" style="left:30%"></div></div><span class="si" style="width:50px;text-align:center">30</span></div></td><td style="text-align:center"><span class="btn-rm">Remove</span></td></tr>
-          <tr><td style="font-weight:600">CLO 4</td><td><span class="si si-w">CLO 4</span></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-blue" style="width:15%"></div><div class="slider-dot slider-dot-blue" style="left:15%"></div></div><span class="si" style="width:50px;text-align:center">15</span></div></td><td style="text-align:center"><span class="btn-rm">Remove</span></td></tr>
+          <tr><td style="font-weight:600">CLO 1</td><td><span class="si si-w">CLO 1</span></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-blue" style="width:30%"></div><div class="slider-dot slider-dot-blue" style="left:30%"></div></div><span class="si" style="width:50px;text-align:center">30</span></div></td><td style="text-align:center"><span class="btn-rm">Remove</span></td></tr>
+          <tr><td style="font-weight:600">CLO 2</td><td><span class="si si-w">CLO 2</span></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-blue" style="width:30%"></div><div class="slider-dot slider-dot-blue" style="left:30%"></div></div><span class="si" style="width:50px;text-align:center">30</span></div></td><td style="text-align:center"><span class="btn-rm">Remove</span></td></tr>
+          <tr><td style="font-weight:600">CLO 3</td><td><span class="si si-w">CLO 3</span></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-blue" style="width:20%"></div><div class="slider-dot slider-dot-blue" style="left:20%"></div></div><span class="si" style="width:50px;text-align:center">20</span></div></td><td style="text-align:center"><span class="btn-rm">Remove</span></td></tr>
+          <tr><td style="font-weight:600">CLO 4</td><td><span class="si si-w">CLO 4</span></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-blue" style="width:20%"></div><div class="slider-dot slider-dot-blue" style="left:20%"></div></div><span class="si" style="width:50px;text-align:center">20</span></div></td><td style="text-align:center"><span class="btn-rm">Remove</span></td></tr>
           <tr class="tr-total"><td></td><td style="text-align:right;font-weight:700">Total:</td><td style="text-align:right"><span class="c-green">100.0%</span></td><td></td></tr>
         </tbody>
       </table>
@@ -245,7 +245,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
   <div class="g g-green">
     <div class="g-lbl">Common scenarios</div>
     <p><strong>A CLO that supports progression:</strong> Sometimes CLOs are designed so they represent progression through to more complex skills. In this case, CLO 1 may be considered as important as the others, but if assignments test the other CLOs more, that is where the actual influence must be recognised. If CLO 1 only contributes 10% to the assignments, estimate it at 10%, freeing 90% for the remaining&nbsp;CLOs.</p>
-    <p><strong>Multiple CLOs in one criterion:</strong> Within that criterion, consider how important each CLO is relative to the others mapped to it, then aggregate as&nbsp;above.</p>
     <p><strong>All CLOs equally important:</strong> This means they will be assessed equally. Indicate equal weightings (e.g., 25% each for four&nbsp;CLOs).</p>
   </div>
 
@@ -266,8 +265,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
   <div class="g g-blue">
     <div class="g-lbl">Choosing your input mode</div>
     <p><strong>Visual mode works well when</strong> you are thinking about relative importance: is this assignment more, less, or equally important for this CLO? The sliders let you see and adjust the balance directly. Visual mode also works naturally when CLOs are evenly distributed across assignments (the equivalent of dragging all sliders to the same&nbsp;position).</p>
-    <p><strong>Numbers mode is better suited when</strong> you are thinking about progression of learning. For example, you may want to indicate how much of a CLO's domain of skill is available to assess at each point in the course (e.g., 20% in Assignment 1, 60% in Assignment 2, 100% in Assignment 3). Or you may want to express which specific portion of the outcome is assessed in each assignment (e.g., the first 20%, then the next 30%, then the remaining 50%). These ideas need precise values to&nbsp;express.</p>
-    <p><strong>You can switch between modes at any time</strong>, so you might start with sliders to get the broad shape, then switch to numbers to fine-tune specific CLOs where progression&nbsp;matters.</p>
+    <p><strong>Numbers mode is better suited when</strong> you are thinking about progression of learning. For example, you may want to indicate how much of a CLO's domain of skill is available to assess at each point in the course (e.g., 30% in Assignment 1, 60% in Assignment 2, 100% in Assignment 3). Or you may want to express which specific portion of the outcome is assessed in each assignment (e.g., the first 20%, then the next 30%, then the remaining 50%). These ideas need precise values to&nbsp;express.</p>
+    <p><strong>You can switch between modes at any time, and you can use different modes for different CLOs.</strong> For example, you might use the sliders for CLOs where the relative importance is intuitive to visualise, then switch to Numbers mode for a CLO where you need to express a specific progression. In the example below, CLOs 1, 2, and 3 are entered using Visual mode, but CLO 4 requires a progression approach, so we switch to Numbers mode to enter those values&nbsp;precisely.</p>
   </div>
 
   <p style="color:var(--ink-light);margin:1.25rem 0 .75rem;font-weight:600">Visual mode example <span style="font-weight:400;font-size:.88rem">(using relative importance: is this assignment more, less, or equally important for this CLO?)</span></p>
@@ -284,9 +283,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
         <thead><tr><th style="width:70px">CLO</th><th style="text-align:center;min-width:150px">Assignment 1</th><th style="text-align:center;min-width:150px">Assignment 2</th><th style="text-align:center;min-width:150px">Assignment 3</th><th style="width:70px;text-align:right">Total</th></tr></thead>
         <tbody>
           <tr><td style="font-weight:600">CLO 1</td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:50%"></div><div class="slider-dot slider-dot-red" style="left:50%"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">50</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:100%"></div><div class="slider-dot slider-dot-red" style="left:calc(100% - 7px)"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">100</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-dot slider-dot-red" style="left:0"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">0</span></div></td><td style="text-align:right;font-weight:600">150.00</td></tr>
-          <tr><td style="font-weight:600">CLO 2</td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:20%"></div><div class="slider-dot slider-dot-red" style="left:20%"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">20</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:50%"></div><div class="slider-dot slider-dot-red" style="left:50%"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">50</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:100%"></div><div class="slider-dot slider-dot-red" style="left:calc(100% - 7px)"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">100</span></div></td><td style="text-align:right;font-weight:600">170.00</td></tr>
-          <tr><td style="font-weight:600">CLO 3</td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:75%"></div><div class="slider-dot slider-dot-red" style="left:75%"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">75</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-dot slider-dot-red" style="left:0"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">0</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:40%"></div><div class="slider-dot slider-dot-red" style="left:40%"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">40</span></div></td><td style="text-align:right;font-weight:600">115.00</td></tr>
-          <tr><td style="font-weight:600">CLO 4</td><td><div class="slider-cell"><div class="slider-track"><div class="slider-dot slider-dot-red" style="left:0"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">0</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:100%"></div><div class="slider-dot slider-dot-red" style="left:calc(100% - 7px)"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">100</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:100%"></div><div class="slider-dot slider-dot-red" style="left:calc(100% - 7px)"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">100</span></div></td><td style="text-align:right;font-weight:600">200.00</td></tr>
+          <tr><td style="font-weight:600">CLO 2</td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:30%"></div><div class="slider-dot slider-dot-red" style="left:30%"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">30</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:60%"></div><div class="slider-dot slider-dot-red" style="left:60%"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">60</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:100%"></div><div class="slider-dot slider-dot-red" style="left:calc(100% - 7px)"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">100</span></div></td><td style="text-align:right;font-weight:600">190.00</td></tr>
+          <tr><td style="font-weight:600">CLO 3</td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:33%"></div><div class="slider-dot slider-dot-red" style="left:33%"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">1</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:33%"></div><div class="slider-dot slider-dot-red" style="left:33%"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">1</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-fill slider-fill-red" style="width:33%"></div><div class="slider-dot slider-dot-red" style="left:33%"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">1</span></div></td><td style="text-align:right;font-weight:600">3.00</td></tr>
+          <tr><td style="font-weight:600">CLO 4</td><td><div class="slider-cell"><div class="slider-track"><div class="slider-dot slider-dot-red" style="left:0"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">0</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-dot slider-dot-red" style="left:0"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">0</span></div></td><td><div class="slider-cell"><div class="slider-track"><div class="slider-dot slider-dot-red" style="left:0"></div></div><span class="si" style="width:42px;text-align:center;font-size:.82rem">0</span></div></td><td style="text-align:right;font-weight:600">0.00</td></tr>
         </tbody>
       </table>
       </div>
@@ -295,10 +294,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 
   <div class="g g-gold" style="margin-top:1rem">
     <div class="g-lbl">Reading the sliders</div>
-    <p>Each row shows how one CLO is distributed across assignments. For CLO 1, the slider for Assignment 2 is at full length while Assignment 1 is at half, telling you at a glance that Assignment 2 carries twice the importance for this CLO. Assignment 3 is at zero, meaning CLO 1 is not assessed&nbsp;there.</p>
+    <p>Each row shows how one CLO is distributed across assignments. For CLO 1, the slider for Assignment 2 is at full length while Assignment 1 is at half, telling you at a glance that Assignment 2 carries twice the importance for this CLO. Assignment 3 is at zero, meaning CLO 1 is not assessed there. For CLO 3, all three sliders are at the same position (1:1:1), showing equal distribution across all assignments. CLO 4 is left at zero for now because it requires a progression approach, which we will enter using Numbers&nbsp;mode.</p>
   </div>
 
-  <p style="color:var(--ink-light);margin:1.5rem 0 .75rem;font-weight:600">Numbers mode example <span style="font-weight:400;font-size:.88rem">(using progression of learning: how much of the domain is available to assess?)</span></p>
+  <p style="color:var(--ink-light);margin:1.5rem 0 .75rem;font-weight:600">Numbers mode example <span style="font-weight:400;font-size:.88rem">(completing CLO 4 using progression of learning)</span></p>
 
   <div class="tm">
     <div class="tm-bar"><span class="tm-dot"></span><span class="tm-dot"></span><span class="tm-dot"></span><span class="tm-title">Stream A Calculator — Numbers Mode</span></div>
@@ -312,9 +311,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
         <thead><tr><th style="width:70px">CLO</th><th style="text-align:center">Assignment 1</th><th style="text-align:center">Assignment 2</th><th style="text-align:center">Assignment 3</th><th style="width:70px;text-align:right">Total</th></tr></thead>
         <tbody>
           <tr><td style="font-weight:600">CLO 1</td><td style="text-align:center"><span class="si" style="text-align:center">50</span></td><td style="text-align:center"><span class="si" style="text-align:center">100</span></td><td style="text-align:center"><span class="si" style="text-align:center">0</span></td><td style="text-align:right;font-weight:600">150.00</td></tr>
-          <tr><td style="font-weight:600">CLO 2</td><td style="text-align:center"><span class="si" style="text-align:center">20</span></td><td style="text-align:center"><span class="si" style="text-align:center">50</span></td><td style="text-align:center"><span class="si" style="text-align:center">100</span></td><td style="text-align:right;font-weight:600">170.00</td></tr>
-          <tr><td style="font-weight:600">CLO 3</td><td style="text-align:center"><span class="si" style="text-align:center">75</span></td><td style="text-align:center"><span class="si" style="text-align:center">0</span></td><td style="text-align:center"><span class="si" style="text-align:center">40</span></td><td style="text-align:right;font-weight:600">115.00</td></tr>
-          <tr><td style="font-weight:600">CLO 4</td><td style="text-align:center"><span class="si" style="text-align:center">0</span></td><td style="text-align:center"><span class="si" style="text-align:center">100</span></td><td style="text-align:center"><span class="si" style="text-align:center">100</span></td><td style="text-align:right;font-weight:600">200.00</td></tr>
+          <tr><td style="font-weight:600">CLO 2</td><td style="text-align:center"><span class="si" style="text-align:center">30</span></td><td style="text-align:center"><span class="si" style="text-align:center">60</span></td><td style="text-align:center"><span class="si" style="text-align:center">100</span></td><td style="text-align:right;font-weight:600">190.00</td></tr>
+          <tr><td style="font-weight:600">CLO 3</td><td style="text-align:center"><span class="si" style="text-align:center">1</span></td><td style="text-align:center"><span class="si" style="text-align:center">1</span></td><td style="text-align:center"><span class="si" style="text-align:center">1</span></td><td style="text-align:right;font-weight:600">3.00</td></tr>
+          <tr style="background:#f0edff"><td style="font-weight:600">CLO 4</td><td style="text-align:center"><span class="si" style="text-align:center;border-color:var(--tool-purple)">20</span></td><td style="text-align:center"><span class="si" style="text-align:center;border-color:var(--tool-purple)">50</span></td><td style="text-align:center"><span class="si" style="text-align:center;border-color:var(--tool-purple)">100</span></td><td style="text-align:right;font-weight:600">170.00</td></tr>
         </tbody>
       </table>
       </div>
@@ -322,9 +321,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
   </div>
 
   <div class="g g-green">
-    <div class="g-lbl">When numbers express something sliders cannot</div>
-    <p>Suppose you want to indicate that CLO 2 follows a progression of learning: only 20% of the domain is available to assess in Assignment 1, 50% in Assignment 2, and 100% in Assignment 3. You would switch to Numbers mode and type 20, 50, 100. The ratio is the same concept, but the specific values express a cumulative progression that sliders alone would not&nbsp;communicate.</p>
-    <p>Similarly, if you want to express which distinct portion of a CLO is assessed in each assignment (e.g., the first 20%, then the next 30%, then the remaining 50%), those values carry meaning beyond relative size and are best entered as&nbsp;numbers.</p>
+    <div class="g-lbl">Why switch to numbers for CLO 4?</div>
+    <p>CLO 4 follows a progression of learning: only 20% of the domain is available to assess in Assignment 1, 50% in Assignment 2, and 100% in Assignment 3. The specific values 20, 50, 100 express a cumulative progression that sliders alone would not communicate. By switching to Numbers mode for this row, you can enter these values precisely while the other CLOs retain the values set using the&nbsp;sliders.</p>
+    <p>Similarly, if you wanted to express which distinct portion of a CLO is assessed in each assignment (e.g., the first 20%, then the next 30%, then the remaining 50%), those values carry meaning beyond relative size and are best entered as&nbsp;numbers.</p>
   </div>
 
   <div class="g g-gold" style="margin-top:1.25rem">
@@ -351,17 +350,17 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
   <div class="tm">
     <div class="tm-bar"><span class="tm-dot"></span><span class="tm-dot"></span><span class="tm-dot"></span><span class="tm-title">Calculated Output</span></div>
     <div class="tm-body">
-      <div class="ts-label"><span class="n">3.</span> Overall Course Contribution (%)</div>
+      <div class="ts-label"><span class="n">3.</span> Assignment Weightings</div>
       <div class="ts-ul"></div>
-      <div class="ts-desc">Contribution of each CLO within each assignment towards the overall course grade.</div>
-      <table class="ot" aria-label="Overall course contribution output">
+      <div class="ts-desc">The estimated weighting of each assignment as a percentage of the overall course grade.</div>
+      <table class="ot" aria-label="Assignment weightings output">
         <thead><tr><th style="text-align:left;width:120px">CLO</th><th>Assignment 1</th><th>Assignment 2</th><th>Assignment 3</th></tr></thead>
         <tbody>
-          <tr><td>CLO 1</td><td>13.33%</td><td class="hl">26.67%</td><td>0.00%</td></tr>
-          <tr><td>CLO 2</td><td>1.76%</td><td>4.41%</td><td>8.82%</td></tr>
-          <tr><td>CLO 3</td><td>19.57%</td><td>0.00%</td><td>10.43%</td></tr>
-          <tr><td>CLO 4</td><td>0.00%</td><td>7.50%</td><td>7.50%</td></tr>
-          <tr class="tot"><td>Assignment Total:</td><td>34.66%</td><td>38.58%</td><td>26.76%</td></tr>
+          <tr><td>CLO 1</td><td>10.00%</td><td class="hl">20.00%</td><td>0.00%</td></tr>
+          <tr><td>CLO 2</td><td>4.74%</td><td>9.47%</td><td>15.79%</td></tr>
+          <tr><td>CLO 3</td><td>6.67%</td><td>6.67%</td><td>6.67%</td></tr>
+          <tr><td>CLO 4</td><td>2.35%</td><td>5.88%</td><td>11.76%</td></tr>
+          <tr class="tot"><td>Assignment Total:</td><td>23.76%</td><td>42.02%</td><td>34.22%</td></tr>
         </tbody>
       </table>
       <div class="ot grand"><strong>Grand Total: 100.00%</strong> &nbsp;(Should equal 100%)</div>
@@ -370,29 +369,29 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 
   <div class="g g-purple">
     <div class="g-lbl">What this tells you</div>
-    <p>The <strong>Assignment Total</strong> row shows the estimated weighting for each assignment. In this example: Assignment 1 ≈ 34.66%, Assignment 2 ≈ 38.58%, Assignment 3 ≈ 26.76%. Rounding to the nearest 5%, we would read these as approximately <strong>35%</strong>, <strong>40%</strong>, and <strong>25%</strong>.</p>
-    <p>Ask yourself: does an assignment weighting of roughly 35%, 40%, 25% match what you intended? If these are close to your intuition, the alignment is working. If there is a significant discrepancy, go back and adjust your inputs in Tables 1 and&nbsp;2.</p>
+    <p>The <strong>Assignment Total</strong> row shows the estimated weighting for each assignment. In this example: Assignment 1 ≈ 23.76%, Assignment 2 ≈ 42.02%, Assignment 3 ≈ 34.22%. Rounding to the nearest 5%, we would read these as approximately <strong>25%</strong>, <strong>40%</strong>, and <strong>35%</strong>.</p>
+    <p>Ask yourself: does an assignment weighting of roughly 25%, 40%, 35% match what you intended? If these are close to your intuition, the alignment is working. If there is a significant discrepancy, go back and adjust your inputs in Tables 1 and&nbsp;2.</p>
   </div>
 
   <div class="g g-blue">
     <div class="g-lbl">Understanding the calculation (optional)</div>
-    <p>If you want to see how the tool arrives at its outputs, click "Show Section 2A - Calculated Details" in the tool. This shows your mapping values from Table 2 converted into percentages for each CLO. For example, CLO 1's values of 50, 100, 0 become 33.3%, 66.7%, 0.0% (each row totals 100%). These percentages are then multiplied by the CLO's weighting from Table 1 to produce the overall course contribution in Table&nbsp;3.</p>
+    <p>If you want to see how the tool arrives at its outputs, click "Show Section 2A - Calculated Details" in the tool. This shows your mapping values from Table 2 converted into percentages for each CLO. For example, CLO 1's values of 50, 100, 0 become 33.3%, 66.7%, 0.0% (each row totals 100%). These percentages are then multiplied by the CLO's weighting from Table 1 to produce the assignment weightings in Table&nbsp;3.</p>
   </div>
 
   <!-- Table 4 -->
   <div class="tm" style="margin-top:2rem">
     <div class="tm-bar"><span class="tm-dot"></span><span class="tm-dot"></span><span class="tm-dot"></span><span class="tm-title">Calculated Output</span></div>
     <div class="tm-body">
-      <div class="ts-label"><span class="n">4.</span> CLO Emphasis per Assignment (%)</div>
+      <div class="ts-label"><span class="n">4.</span> Marking Guide/ Rubric Composition</div>
       <div class="ts-ul"></div>
-      <div class="ts-desc">Percentage emphasis of each CLO within each individual assignment.</div>
-      <table class="ot" aria-label="CLO emphasis per assignment output">
+      <div class="ts-desc">The percentage emphasis each CLO should have within each individual assignment.</div>
+      <table class="ot" aria-label="Marking guide rubric composition output">
         <thead><tr><th style="text-align:left;width:120px">CLO</th><th>Assignment 1</th><th>Assignment 2</th><th>Assignment 3</th></tr></thead>
         <tbody>
-          <tr><td>CLO 1</td><td>38.5%</td><td class="hl">69.1%</td><td>0.0%</td></tr>
-          <tr><td>CLO 2</td><td>5.1%</td><td>11.4%</td><td class="hl">33.0%</td></tr>
-          <tr><td>CLO 3</td><td class="hl">56.4%</td><td>0.0%</td><td>39.0%</td></tr>
-          <tr><td>CLO 4</td><td>0.0%</td><td>19.4%</td><td>28.0%</td></tr>
+          <tr><td>CLO 1</td><td class="hl">42.1%</td><td class="hl">47.6%</td><td>0.0%</td></tr>
+          <tr><td>CLO 2</td><td>19.9%</td><td>22.5%</td><td class="hl">46.1%</td></tr>
+          <tr><td>CLO 3</td><td>28.1%</td><td>15.9%</td><td>19.5%</td></tr>
+          <tr><td>CLO 4</td><td>9.9%</td><td>14.0%</td><td>34.4%</td></tr>
           <tr class="tot"><td>Total per Assignment:</td><td class="c-green">100.0%</td><td class="c-green">100.0%</td><td class="c-green">100.0%</td></tr>
         </tbody>
       </table>
@@ -401,8 +400,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 
   <div class="g g-purple">
     <div class="g-lbl">What this tells you</div>
-    <p>This table indicates the estimated <strong>CLO influence within each assignment's rubric</strong>. Read each column as one assignment's breakdown. For example, in Assignment 1, CLO 3 has roughly 55% influence. This does not mean there is a single criterion called "CLO 3" worth 55%. It means that whichever criteria are mapped to CLO 3 (whether that is one criterion or several), their combined weighting should account for approximately 55% of that assignment's&nbsp;marks.</p>
-    <p>The highlighted cells show where each CLO has its strongest influence. Ask yourself: does it make sense that CLO 3 dominates Assignment 1? That CLO 1 dominates Assignment 2? If these are close to your intuition (within about 5%), the alignment is working. If there is a significant discrepancy,&nbsp;iterate.</p>
+    <p>This table indicates the estimated <strong>CLO influence within each assignment's rubric</strong>. Read each column as one assignment's breakdown. For example, in Assignment 1, CLO 1 has roughly 40% influence. This does not mean there is a single criterion called "CLO 1" worth 40%. It means that whichever criteria are mapped to CLO 1 (whether that is one criterion or several), their combined weighting should account for approximately 40% of that assignment's&nbsp;marks.</p>
+    <p>The highlighted cells show where each CLO has its strongest influence. Ask yourself: does it make sense that CLO 1 dominates both Assignments 1 and 2? That CLO 2 dominates Assignment 3? If these are close to your intuition (within about 5%), the alignment is working. If there is a significant discrepancy,&nbsp;iterate.</p>
   </div>
 
   <!-- Video: Inputs and Outputs -->
@@ -526,7 +525,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 </div></main>
 
 <footer class="ft"><div class="pw">
-  <p>The Alignment Construction Tool &middot; An educational research project</p>
+  <p>The Constructive Alignment Tool &middot; An educational research project</p>
 </div></footer>
 
 <script>

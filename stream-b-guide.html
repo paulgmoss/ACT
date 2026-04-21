@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stream B Walkthrough: Alignment Construction Tool</title>
+<title>Stream B Walkthrough: Constructive Alignment Tool</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --ink:#1a2a3a;--ink-light:#3d5269;--ink-muted:#6b7f94;
-  --bg:#f8f7f4;--bg-warm:#f1efe9;--bg-card:#fff;
-  --accent:#2a5a8f;--accent-light:#e4edf7;--accent-hover:#1f4a78;
-  --green:#1b6b5a;--green-light:#e6f2ef;
-  --gold:#d4a853;--gold-light:#fef8eb;
-  --border:#ddd8ce;
-  --tool-navy:#1e1e3f;--tool-pink:#c0392b;--tool-green:#27ae60;--tool-purple:#6c5ce7;--tool-bg:#f5f3ff;
+  --ink:#140F50;--ink-light:#3d3770;--ink-muted:#6b6890;
+  --bg:#F8EFE0;--bg-warm:#f0e6d4;--bg-card:#fff;
+  --accent:#836BFF;--accent-light:#eee8ff;--accent-hover:#6b55e0;
+  --green:#140F50;--green-light:#e8e7f0;
+  --gold:#140F50;--gold-light:#e8e7f0;
+  --border:#d8d0c4;
+  --tool-navy:#140F50;--tool-pink:#c0392b;--tool-green:#27ae60;--tool-purple:#836BFF;--tool-bg:#f0edff;
   --font-display:'Fraunces',Georgia,serif;
   --font-body:'Source Sans 3','Segoe UI',sans-serif;
   --font-mono:'JetBrains Mono',monospace;
@@ -42,7 +42,7 @@ body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-hei
 .snav-inner{display:flex;align-items:center;gap:.25rem;justify-content:center;flex-wrap:wrap}
 .sp{display:flex;align-items:center;gap:.25rem;cursor:pointer;padding:6px 12px;border-radius:20px;font-size:.82rem;font-weight:500;color:var(--ink-muted);background:0 0;border:1px solid transparent;transition:all .25s}
 .sp:hover{color:var(--ink-light);background:var(--bg-warm)}
-.sp.on{color:var(--accent);background:var(--accent-light);border-color:rgba(42,90,143,.2);font-weight:600}
+.sp.on{color:var(--accent);background:var(--accent-light);border-color:rgba(131,107,255,.2);font-weight:600}
 .sp-n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-size:.72rem;font-weight:700;background:var(--border);color:var(--ink-muted);transition:all .25s}
 .sp.on .sp-n{background:var(--accent);color:#fff}
 .sp-l{display:none}
@@ -145,7 +145,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 <body>
 
 <header class="hd"><div class="pw">
-  <div class="hd-logo">Alignment <span>Construction</span> Tool</div>
+  <div class="hd-logo">Constructive <span>Alignment</span> Tool</div>
   <a href="https://paulgmoss.github.io/ACT/" class="hd-back">← Back to landing page</a>
 </div></header>
 
@@ -491,7 +491,7 @@ Assignment 3: 40% : 4 criteria (CLOs 2, 2, 3, 4)
 </div></main>
 
 <footer class="ft"><div class="pw">
-  <p>The Alignment Construction Tool &middot; An educational research project</p>
+  <p>The Constructive Alignment Tool &middot; An educational research project</p>
 </div></footer>
 
 <script>

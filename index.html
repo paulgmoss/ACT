@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Alignment Construction Tool</title>
+    <title>The Constructive Alignment Tool</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -11,18 +11,18 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --clr-ink: #1a2a3a;
-            --clr-ink-light: #3d5269;
-            --clr-ink-muted: #6b7f94;
-            --clr-bg: #f8f7f4;
-            --clr-bg-warm: #f1efe9;
+            --clr-ink: #140F50;
+            --clr-ink-light: #3d3770;
+            --clr-ink-muted: #6b6890;
+            --clr-bg: #F8EFE0;
+            --clr-bg-warm: #f0e6d4;
             --clr-bg-card: #ffffff;
-            --clr-accent-a: #1b6b5a;
-            --clr-accent-a-light: #e6f2ef;
-            --clr-accent-b: #2a5a8f;
-            --clr-accent-b-light: #e4edf7;
-            --clr-border: #ddd8ce;
-            --clr-highlight: #d4a853;
+            --clr-accent-a: #140F50;
+            --clr-accent-a-light: #e8e7f0;
+            --clr-accent-b: #836BFF;
+            --clr-accent-b-light: #eee8ff;
+            --clr-border: #d8d0c4;
+            --clr-highlight: #140F50;
             --font-display: 'Fraunces', Georgia, serif;
             --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
             --w-max: 1120px;
@@ -93,7 +93,7 @@
             position: absolute;
             top: -80px; right: -120px;
             width: 480px; height: 480px;
-            background: radial-gradient(circle, rgba(27,107,90,0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(20,15,80,0.06) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -102,7 +102,7 @@
             position: absolute;
             bottom: -60px; left: -80px;
             width: 360px; height: 360px;
-            background: radial-gradient(circle, rgba(42,90,143,0.05) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(131,107,255,0.05) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -168,8 +168,8 @@
             color: #fff;
         }
         .btn-a:hover, .btn-a:focus {
-            background: #155a4b;
-            box-shadow: 0 6px 24px rgba(27,107,90,0.25);
+            background: #0d0b40;
+            box-shadow: 0 6px 24px rgba(20,15,80,0.25);
             transform: translateY(-1px);
         }
         .btn-b {
@@ -177,8 +177,8 @@
             color: #fff;
         }
         .btn-b:hover, .btn-b:focus {
-            background: #1f4a78;
-            box-shadow: 0 6px 24px rgba(42,90,143,0.25);
+            background: #6b55e0;
+            box-shadow: 0 6px 24px rgba(131,107,255,0.25);
             transform: translateY(-1px);
         }
         .btn-arrow { font-size: 1.2rem; transition: transform 0.2s; }
@@ -451,7 +451,7 @@
         details.accordion summary::marker { content: ''; }
 
         details.accordion summary:hover {
-            background: #eae7df;
+            background: #efe5d4;
         }
 
         .accordion-icon {
@@ -464,7 +464,7 @@
             font-size: 1.1rem;
         }
         .accordion--how-works .accordion-icon { background: var(--clr-accent-a-light); color: var(--clr-accent-a); }
-        .accordion--use-cases .accordion-icon { background: #fef3e0; color: #b8860b; }
+        .accordion--use-cases .accordion-icon { background: #e8edff; color: #b8860b; }
         .accordion--research .accordion-icon { background: var(--clr-accent-b-light); color: var(--clr-accent-b); }
 
         .accordion-title-text { flex: 1; }
@@ -592,7 +592,7 @@
             margin-bottom: var(--space-sm);
         }
         .use-case:nth-child(1) .use-case-icon { background: var(--clr-accent-a-light); }
-        .use-case:nth-child(2) .use-case-icon { background: #fef3e0; }
+        .use-case:nth-child(2) .use-case-icon { background: #e8edff; }
         .use-case:nth-child(3) .use-case-icon { background: var(--clr-accent-b-light); }
         .use-case h3 { font-size: 1.05rem; }
         .use-case p { color: var(--clr-ink-light); font-size: 0.93rem; }
@@ -735,8 +735,8 @@
             transition: all 0.2s;
         }
         .research-card--usability .research-card-link {
-            color: #8b6914;
-            background: #fef3e0;
+            color: #140F50;
+            background: #e8edff;
         }
         .research-card--usability .research-card-link:hover {
             background: var(--clr-highlight);
@@ -811,7 +811,7 @@
     <!-- Header -->
     <header role="banner">
         <div class="container header-inner">
-            <div class="logo">Alignment <span>Construction</span> Tool</div>
+            <div class="logo">Constructive <span>Alignment</span> Tool</div>
             <nav aria-label="Main navigation">
                 <a href="#start">Get Started</a>
                 <a href="#learn-more">Learn More</a>
@@ -825,7 +825,7 @@
             <div class="container">
                 <div class="hero-content">
                     <span class="hero-label fade-in">Curriculum Design Tool</span>
-                    <h1 id="hero-heading" class="fade-in">The Alignment Construction&nbsp;Tool</h1>
+                    <h1 id="hero-heading" class="fade-in">The Constructive Alignment&nbsp;Tool</h1>
                     <p class="hero-subtitle fade-in">How do you know if your outcomes, assignments, and rubrics are truly aligned? This tool visualises the connections between your Course Learning Outcomes and assignments. Start from whichever component feels most natural and see how changes affect your entire course&nbsp;design.</p>
                 </div>
             </div>
@@ -1059,7 +1059,7 @@
 
     <footer role="contentinfo">
         <div class="container">
-            <p>The Alignment Construction Tool &middot; An educational research project</p>
+            <p>The Constructive Alignment Tool &middot; An educational research project</p>
         </div>
     </footer>
 
