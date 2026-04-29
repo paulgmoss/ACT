@@ -87,6 +87,14 @@ body{font-family:var(--body);color:var(--text);background:var(--limestone);line-
 /* --- Focus --- */
 a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-offset:2px}
 
+/* --- Next step button --- */
+.next-step{text-align:center;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border-lt)}
+.next-step-btn{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--body);font-size:.92rem;font-weight:600;padding:12px 28px;border-radius:8px;border:none;cursor:pointer;transition:all .2s;background:var(--navy);color:var(--white)}
+.next-step-btn:hover{background:#0d0b40;transform:translateY(-1px);box-shadow:0 4px 12px rgba(20,15,80,.15)}
+.next-step-btn-purple{background:var(--purple)}
+.next-step-btn-purple:hover{background:#6b55e0;transform:translateY(-1px);box-shadow:0 4px 12px rgba(131,107,255,.25)}
+.next-step p{font-size:.82rem;color:var(--text-muted);margin-top:.5rem}
+
 /* --- Responsive --- */
 @media(max-width:700px){
   .hd-inner,.tab-bar-inner,.content,.ft-inner{padding:0 1rem}
@@ -108,14 +116,14 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
       <span class="logo-mark">∞</span>
       <span class="logo-lbl"><span class="logo-name">CAT</span>Stream A</span>
     </a>
-    <a href="https://paulgmoss.github.io/ACT/" class="hd-link">← Back to overview</a>
+    <a href="https://paulgmoss.github.io/ACT/" class="hd-link">← Back to landing page</a>
   </div>
 </header>
 
 <nav class="tab-bar" aria-label="Tool sections">
   <div class="tab-bar-inner">
     <div class="tab-bar-overview">
-      <a href="https://paulgmoss.github.io/ACT/">Overview & Guides ↗</a>
+      <a href="https://paulgmoss.github.io/ACT/">Stream A Overview & Guides ↗</a>
     </div>
     <div class="tab-bar-tabs">
       <button class="tab on" onclick="go(0)"><span class="tab-num">1</span>CLO Weightings</button>
@@ -137,8 +145,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
     </div>
     <div class="instr-body">
       <div class="instr-body-inner">
-        <p>Estimate the <strong>relative importance</strong> of each CLO in your course as percentages totalling 100%. Think about how much influence each outcome has across all of your assignments and their marking criteria, not just how much teaching time it receives.</p>
-        <p>Use the <strong>Input Mode</strong> toggle (top right) to switch between Numbers and Visual. Visual mode adds sliders alongside the numbers, which is useful for a sense check: look at the relative lengths of the sliders and ask yourself whether they match your intuition. Once the sliders are in place, you can adjust the numbers directly to round off or even out the figures.</p>
+        <p><strong>To begin:</strong> Click <strong>Add CLO</strong> to add the relevant number of course learning outcomes for your course. Then estimate the <strong>relative importance</strong> of each CLO as percentages totalling 100%.</p>
+        <p>Think about how much influence each outcome has across all of your assignments and their marking criteria, not just how much teaching time it receives.</p>
+        <p><strong>Select your input mode</strong> using the toggle (top right). <strong>Numbers mode</strong> lets you type values directly. <strong>Visual mode</strong> adds sliders alongside the numbers, which is useful for a sense check: look at the relative lengths of the sliders and ask yourself whether they match your intuition. Once the sliders are in place, you can adjust the numbers directly to round off or even out the figures.</p>
         <p>If all CLOs are equally important, set equal weightings (e.g., 25% each for four CLOs). If a CLO supports progression but is tested less in assignments, its weighting should reflect its actual influence on the assessment, not its importance in the abstract.</p>
         <a href="https://paulgmoss.github.io/ACT/stream-a-guide.html#clo-weightings" class="instr-link">Detailed guidance: CLO Weightings →</a>
       </div>
@@ -147,6 +156,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
 
   <div style="text-align:center">
     <img src="table%201%20image%201.png" alt="Table 1: CLO Weightings showing CLO 1 at 30%, CLO 2 at 30%, CLO 3 at 20%, CLO 4 at 20%" style="max-width:100%;border-radius:12px;border:1px solid var(--border-lt);box-shadow:0 2px 12px rgba(20,15,80,.06)">
+  </div>
+
+  <div class="next-step">
+    <button class="next-step-btn" onclick="go(1)">Continue to CLO Mapping →</button>
+    <p>Your CLO weightings will inform the next table.</p>
   </div>
 </div>
 
@@ -159,8 +173,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
     </div>
     <div class="instr-body">
       <div class="instr-body-inner">
-        <p>Map how each CLO distributes across your assignments. The values represent a <strong>ratio of relative importance</strong> within each row. The absolute numbers do not matter: 1 and 2 produces the same result as 50 and 100. A value of <strong>0</strong> means that CLO is not assessed in that assignment.</p>
-        <p><strong>Visual mode</strong> works well when you are thinking about relative importance: is this assignment more, less, or equally important for this CLO? <strong>Numbers mode</strong> is better when you are thinking about progression of learning, for example how much of the CLO's domain is available to assess at each point (e.g., 30, 60, 100).</p>
+        <p><strong>To begin:</strong> Click <strong>Add Assignment</strong> to add the relevant number of assignments in your course. Then map how each CLO distributes across those assignments.</p>
+        <p>The values represent a <strong>ratio of relative importance</strong> within each row. The absolute numbers do not matter: 1 and 2 produces the same result as 50 and 100. A value of <strong>0</strong> means that CLO is not assessed in that assignment.</p>
+        <p><strong>Select your input mode</strong> using the toggle (top right). <strong>Visual mode</strong> works well when you are thinking about relative importance: is this assignment more, less, or equally important for this CLO? <strong>Numbers mode</strong> is better when you are thinking about progression of learning, for example how much of the CLO's domain is available to assess at each point (e.g., 30, 60, 100).</p>
         <p><strong>You can use different modes for different CLOs.</strong> For example, use sliders for CLOs where relative importance is intuitive, then switch to Numbers for a CLO that follows a progression. The values from one mode carry over when you switch.</p>
         <a href="https://paulgmoss.github.io/ACT/stream-a-guide.html#clo-mapping" class="instr-link">Detailed guidance: CLO Mapping & Input Modes →</a>
       </div>
@@ -169,6 +184,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
 
   <div style="text-align:center">
     <img src="table%202%20image%201.png" alt="Table 2: CLO Mapping showing CLO 1: 50,100,0 / CLO 2: 30,60,100 / CLO 3: 1,1,1 / CLO 4: 20,50,100" style="max-width:100%;border-radius:12px;border:1px solid var(--border-lt);box-shadow:0 2px 12px rgba(20,15,80,.06)">
+  </div>
+
+  <div class="next-step">
+    <button class="next-step-btn" onclick="go(2)">Continue to Assignment Weightings →</button>
+    <p>View the calculated outputs based on your inputs.</p>
   </div>
 </div>
 
@@ -193,6 +213,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
     <img src="Table%204%20original.png" alt="Table 3: Assignment Weightings showing totals 23.76%, 42.02%, 34.22%" style="max-width:100%;border-radius:12px;border:1px solid var(--border-lt);box-shadow:0 2px 12px rgba(20,15,80,.06)">
     <p style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem;font-style:italic">Screenshot for demonstration purposes. The interactive tool will replace this view.</p>
   </div>
+
+  <div class="next-step">
+    <button class="next-step-btn" onclick="go(3)">Continue to Rubric Composition →</button>
+    <p>See how CLO emphasis is distributed within each assignment's marking criteria.</p>
+  </div>
 </div>
 
 <!-- TAB 4: Rubric Composition (output) -->
@@ -216,6 +241,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
     <img src="Table%204%20image%201.png" alt="Table 4: Rubric Composition showing CLO emphasis per assignment" style="max-width:100%;border-radius:12px;border:1px solid var(--border-lt);box-shadow:0 2px 12px rgba(20,15,80,.06)">
     <p style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem;font-style:italic">Screenshot for demonstration purposes. The interactive tool will replace this view.</p>
   </div>
+
+  <div class="next-step">
+    <button class="next-step-btn next-step-btn-purple">Generate PDF of your outputs ↓</button>
+    <p>Download a PDF version of your CLO and assignment mapping distribution outputs.</p>
+  </div>
 </div>
 
 </div>
@@ -223,7 +253,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
 <footer class="ft">
   <div class="ft-inner">
     <span>CAT · The Constructive Alignment Tool</span>
-    <a href="https://paulgmoss.github.io/ACT/">Overview, guides & iteration examples</a>
+    <span>An educational research project</span>
   </div>
 </footer>
 
