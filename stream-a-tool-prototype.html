@@ -34,7 +34,7 @@ body{font-family:var(--body);color:var(--text);background:var(--limestone);line-
 .hd-link:hover{text-decoration:underline}
 
 /* --- Tab bar --- */
-.tab-bar{border-bottom:2px solid var(--border-lt);background:var(--white);padding:0 2rem}
+.tab-bar{border-bottom:2px solid var(--border-lt);background:var(--white);padding:0 2rem;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(20,15,80,.04)}
 .tab-bar-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center}
 .tab-bar-overview{flex-shrink:0;margin-right:1.5rem}
 .tab-bar-overview a{font-size:.82rem;font-weight:600;color:var(--navy);text-decoration:none;padding:8px 16px;border-radius:6px;background:var(--limestone);border:1px solid var(--border);display:inline-block;transition:all .2s}
@@ -57,8 +57,14 @@ body{font-family:var(--body);color:var(--text);background:var(--limestone);line-
 
 /* --- Instructions --- */
 .instr{margin-bottom:1.5rem}
-.instr-title{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--navy);margin-bottom:.5rem}
+.instr-header{display:flex;align-items:center;gap:.75rem;cursor:pointer;padding:.5rem 0;user-select:none}
+.instr-title{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--navy);margin:0}
 .instr-title .num{color:var(--purple)}
+.instr-toggle{font-size:.72rem;font-weight:600;color:var(--purple);background:var(--purple-soft);border:none;padding:4px 10px;border-radius:20px;cursor:pointer;white-space:nowrap;transition:all .2s;font-family:var(--body)}
+.instr-toggle:hover{background:var(--purple);color:var(--white)}
+.instr-body{overflow:hidden;max-height:0;transition:max-height .35s ease,opacity .3s ease;opacity:0}
+.instr-body.open{max-height:600px;opacity:1}
+.instr-body-inner{padding:.5rem 0 .25rem}
 .instr p{font-size:.9rem;color:var(--text-sec);line-height:1.7;max-width:800px}
 .instr p+p{margin-top:.4rem}
 .instr strong{color:var(--text)}
@@ -125,11 +131,18 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
 <!-- TAB 1: CLO Weightings -->
 <div class="panel on" id="p0">
   <div class="instr">
-    <div class="instr-title"><span class="num">1.</span> CLO Weightings</div>
-    <p>Estimate the <strong>relative importance</strong> of each CLO in your course as percentages totalling 100%. Think about how much influence each outcome has across all of your assignments and their marking criteria, not just how much teaching time it receives.</p>
-    <p>Use the <strong>Input Mode</strong> toggle (top right) to switch between Numbers and Visual. Visual mode adds sliders alongside the numbers, which is useful for a sense check: look at the relative lengths of the sliders and ask yourself whether they match your intuition. Once the sliders are in place, you can adjust the numbers directly to round off or even out the figures.</p>
-    <p>If all CLOs are equally important, set equal weightings (e.g., 25% each for four CLOs). If a CLO supports progression but is tested less in assignments, its weighting should reflect its actual influence on the assessment, not its importance in the abstract.</p>
-    <a href="https://paulgmoss.github.io/ACT/stream-a-guide.html#clo-weightings" class="instr-link">Detailed guidance: CLO Weightings →</a>
+    <div class="instr-header" onclick="toggleInstr(this)">
+      <div class="instr-title"><span class="num">1.</span> CLO Weightings</div>
+      <button class="instr-toggle">Show guidance ▼</button>
+    </div>
+    <div class="instr-body">
+      <div class="instr-body-inner">
+        <p>Estimate the <strong>relative importance</strong> of each CLO in your course as percentages totalling 100%. Think about how much influence each outcome has across all of your assignments and their marking criteria, not just how much teaching time it receives.</p>
+        <p>Use the <strong>Input Mode</strong> toggle (top right) to switch between Numbers and Visual. Visual mode adds sliders alongside the numbers, which is useful for a sense check: look at the relative lengths of the sliders and ask yourself whether they match your intuition. Once the sliders are in place, you can adjust the numbers directly to round off or even out the figures.</p>
+        <p>If all CLOs are equally important, set equal weightings (e.g., 25% each for four CLOs). If a CLO supports progression but is tested less in assignments, its weighting should reflect its actual influence on the assessment, not its importance in the abstract.</p>
+        <a href="https://paulgmoss.github.io/ACT/stream-a-guide.html#clo-weightings" class="instr-link">Detailed guidance: CLO Weightings →</a>
+      </div>
+    </div>
   </div>
 
   <div style="text-align:center">
@@ -140,11 +153,18 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
 <!-- TAB 2: CLO Mapping -->
 <div class="panel" id="p1">
   <div class="instr">
-    <div class="instr-title"><span class="num">2.</span> CLO Mapping</div>
-    <p>Map how each CLO distributes across your assignments. The values represent a <strong>ratio of relative importance</strong> within each row. The absolute numbers do not matter: 1 and 2 produces the same result as 50 and 100. A value of <strong>0</strong> means that CLO is not assessed in that assignment.</p>
-    <p><strong>Visual mode</strong> works well when you are thinking about relative importance: is this assignment more, less, or equally important for this CLO? <strong>Numbers mode</strong> is better when you are thinking about progression of learning, for example how much of the CLO's domain is available to assess at each point (e.g., 30, 60, 100).</p>
-    <p><strong>You can use different modes for different CLOs.</strong> For example, use sliders for CLOs where relative importance is intuitive, then switch to Numbers for a CLO that follows a progression. The values from one mode carry over when you switch.</p>
-    <a href="https://paulgmoss.github.io/ACT/stream-a-guide.html#clo-mapping" class="instr-link">Detailed guidance: CLO Mapping & Input Modes →</a>
+    <div class="instr-header" onclick="toggleInstr(this)">
+      <div class="instr-title"><span class="num">2.</span> CLO Mapping</div>
+      <button class="instr-toggle">Show guidance ▼</button>
+    </div>
+    <div class="instr-body">
+      <div class="instr-body-inner">
+        <p>Map how each CLO distributes across your assignments. The values represent a <strong>ratio of relative importance</strong> within each row. The absolute numbers do not matter: 1 and 2 produces the same result as 50 and 100. A value of <strong>0</strong> means that CLO is not assessed in that assignment.</p>
+        <p><strong>Visual mode</strong> works well when you are thinking about relative importance: is this assignment more, less, or equally important for this CLO? <strong>Numbers mode</strong> is better when you are thinking about progression of learning, for example how much of the CLO's domain is available to assess at each point (e.g., 30, 60, 100).</p>
+        <p><strong>You can use different modes for different CLOs.</strong> For example, use sliders for CLOs where relative importance is intuitive, then switch to Numbers for a CLO that follows a progression. The values from one mode carry over when you switch.</p>
+        <a href="https://paulgmoss.github.io/ACT/stream-a-guide.html#clo-mapping" class="instr-link">Detailed guidance: CLO Mapping & Input Modes →</a>
+      </div>
+    </div>
   </div>
 
   <div style="text-align:center">
@@ -155,11 +175,18 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
 <!-- TAB 3: Assignment Weightings (output) -->
 <div class="panel" id="p2">
   <div class="instr instr-output">
-    <div class="instr-title"><span class="num">3.</span> Assignment Weightings</div>
-    <p>These are the <strong>estimated weightings</strong> for each assignment based on your inputs, shown as a percentage of the overall course grade. Round to the nearest 5% when reading the totals.</p>
-    <p>Ask yourself: does this distribution match what you intended? You can use this to either inform the assignment weightings of your course, or to verify whether your current weightings align with your CLO distribution.</p>
-    <p>If there is a significant discrepancy, go back to <strong>Tab 1</strong> or <strong>Tab 2</strong> to adjust your inputs. The outputs will update instantly.</p>
-    <a href="https://paulgmoss.github.io/ACT/stream-a-guide.html#evaluate" class="instr-link">Detailed guidance: Reading Outputs & How to Iterate →</a>
+    <div class="instr-header" onclick="toggleInstr(this)">
+      <div class="instr-title"><span class="num">3.</span> Assignment Weightings</div>
+      <button class="instr-toggle">Show guidance ▼</button>
+    </div>
+    <div class="instr-body">
+      <div class="instr-body-inner">
+        <p>These are the <strong>estimated weightings</strong> for each assignment based on your inputs, shown as a percentage of the overall course grade. Round to the nearest 5% when reading the totals.</p>
+        <p>Ask yourself: does this distribution match what you intended? You can use this to either inform the assignment weightings of your course, or to verify whether your current weightings align with your CLO distribution.</p>
+        <p>If there is a significant discrepancy, go back to <strong>Tab 1</strong> or <strong>Tab 2</strong> to adjust your inputs. The outputs will update instantly.</p>
+        <a href="https://paulgmoss.github.io/ACT/stream-a-guide.html#evaluate" class="instr-link">Detailed guidance: Reading Outputs & How to Iterate →</a>
+      </div>
+    </div>
   </div>
 
   <div style="text-align:center">
@@ -171,11 +198,18 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
 <!-- TAB 4: Rubric Composition (output) -->
 <div class="panel" id="p3">
   <div class="instr instr-output">
-    <div class="instr-title"><span class="num">4.</span> Marking Guide / Rubric Composition</div>
-    <p>This shows the <strong>CLO emphasis within each assignment's rubric</strong>. Read each column as one assignment's breakdown. For example, if CLO 1 shows 40% in Assignment 1, it means the criteria mapped to CLO 1 should account for approximately 40% of that assignment's marks (whether that is one criterion or several).</p>
-    <p>The highlighted cells show where each CLO has its strongest influence. Ask yourself: does this composition make sense for how you would design the marking criteria? If a CLO appears in an assignment you did not expect, or if the emphasis feels wrong, go back to <strong>Tab 1</strong> or <strong>Tab 2</strong> to adjust.</p>
-    <p>Changes here have real implications: if the rubric composition shifts, the teaching sequence may need to reflect that.</p>
-    <a href="https://paulgmoss.github.io/ACT/stream-a-guide.html#iterate" class="instr-link">Detailed guidance: Iteration Scenarios with Examples →</a>
+    <div class="instr-header" onclick="toggleInstr(this)">
+      <div class="instr-title"><span class="num">4.</span> Marking Guide / Rubric Composition</div>
+      <button class="instr-toggle">Show guidance ▼</button>
+    </div>
+    <div class="instr-body">
+      <div class="instr-body-inner">
+        <p>This shows the <strong>CLO emphasis within each assignment's rubric</strong>. Read each column as one assignment's breakdown. For example, if CLO 1 shows 40% in Assignment 1, it means the criteria mapped to CLO 1 should account for approximately 40% of that assignment's marks (whether that is one criterion or several).</p>
+        <p>The highlighted cells show where each CLO has its strongest influence. Ask yourself: does this composition make sense for how you would design the marking criteria? If a CLO appears in an assignment you did not expect, or if the emphasis feels wrong, go back to <strong>Tab 1</strong> or <strong>Tab 2</strong> to adjust.</p>
+        <p>Changes here have real implications: if the rubric composition shifts, the teaching sequence may need to reflect that.</p>
+        <a href="https://paulgmoss.github.io/ACT/stream-a-guide.html#iterate" class="instr-link">Detailed guidance: Iteration Scenarios with Examples →</a>
+      </div>
+    </div>
   </div>
 
   <div style="text-align:center">
@@ -200,6 +234,13 @@ function go(n) {
   tabs.forEach((t, i) => t.classList.toggle('on', i === n));
   panels.forEach((p, i) => p.classList.toggle('on', i === n));
   window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function toggleInstr(header) {
+  const body = header.nextElementSibling;
+  const btn = header.querySelector('.instr-toggle');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open');
+  btn.textContent = isOpen ? 'Show guidance ▼' : 'Hide guidance ▲';
 }
 </script>
 </body>
